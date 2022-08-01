@@ -133,7 +133,7 @@ jobs:
         parameters:
           int_blas: false
           int_lapack: false
-          extra_cmake_args: '-DCMAKE_OSX_ARCHITECTURES=arm64'
+          extra_cmake_args: '-DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_OSX_ARCHITECTURES=arm64'
           run_tests: false # build only, do not run tests
 
   - job: windows_static

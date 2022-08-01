@@ -120,6 +120,21 @@ jobs:
           int_blas: false
           int_lapack: false
 
+  - job: macos_arm
+    pool:
+      vmImage: macos-latest
+    steps:
+      - script: |
+          brew update
+          brew install ninja ccache
+        displayName: Install dependencies
+
+      - template: .azure/build.yml
+        parameters:
+          int_blas: false
+          int_lapack: false
+          extra_cmake_args: '-DCMAKE_OSX_ARCHITECTURES=arm64'
+
   - job: windows_static
     pool:
        vmImage: windows-2019
